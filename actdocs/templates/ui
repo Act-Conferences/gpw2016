@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="[% global.request.language %]">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <base href="[% make_uri('') %]" target="_top">
+    <title>[% global.conference.name %]</title>
+    <meta name="description"      content="<t><de>Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.</de><en>The German Perl Workshop is a conference about the Perl Programming Language. It is organized by Perl developers.</en></t>">
+    <meta name="keywords"         content="Perl,Workshop,<t><de>Konferenz,Deutschland,Entwickler,Programmiersprache</de><en>Conference,Germany,Developer,Programming language</en></t>">
+    <meta name="application-name" content="ACT GPW2016">
+    <meta name="author"           content="Dresden.pm, Perleone">
+    <meta name="generator"        content="act.yapc.eu">
+    <script type="text/javascript" src="scripts/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/base.css">
+    <link rel="stylesheet" type="text/css" href="styles/oldcolors.css">
+  </head>
+  <body>
+    <header id="header">
+			<div id="logo"></div>
+      <h1 id="site_name"><a href="index.html">[% global.conference.name %]</a></h1>
+      <p id="otherworkshops">
+        <a href="http://act.yapc.eu/gpw2016/">2016</a>
+        <a href="http://act.yapc.eu/gpw2015/">2015</a>
+        <a href="http://act.yapc.eu/gpw2014/">2014</a>
+        <a href="http://act.yapc.eu/gpw2013/">2013</a>
+        <a href="http://conferences.yapceurope.org/gpw2012/">2012</a>
+        <a href="http://conferences.yapceurope.org/gpw2011/">2011</a>
+        <a href="http://conferences.yapceurope.org/gpw2010/">2010</a>
+        <a href="http://www.perl-workshop.de/de/2009/">2009</a>
+        <a href="http://www.perl-workshop.de/de/2008/">2008</a>
+        <a href="http://www.perl-workshop.de/de/2007/">2007</a>
+        <a href="http://www.perl-workshop.de/de/2006/">2006</a>
+        <a href="http://www.perl-workshop.de/de/2005/">2005</a>
+        <a href="http://www.perl-workshop.de/de/2004/">2004</a>
+        <a href="http://www.perl-workshop.de/de/2003/">2003</a>
+        <a href="http://www.perl-workshop.de/de/2002/">2002</a>
+        <a href="http://www.perl-workshop.de/de/2001/">2001</a>
+        <a href="http://www.perl-workshop.de/de/2000/">2000</a>
+        <a href="http://www.perl-workshop.de/de/1999/">1999</a>
+      </p>
+      <nav id="topnav">
+        <ul class="topnav">
+          <li><a href="index.html"><t><de>Startseite</de><en>Home</en></t></a></li>
+          <li><a href="news">News</a></li>
+          <li><a href="venue.html"><t><de>Veranstaltungsort</de><en>Venue</en></t></a></li>
+          <li><a href="stats"><t><de>Teilnehmer</de><en>Attendees</en></t></a></li>
+          <li><a href="schedule"><t><de>Programm</de><en>Schedule</en></t></a></li>
+          <li><a href="sponsoring.html"><t><de>Unterstützen</de><en>Sponsoring</en></t></a></li>
+          <li><a href="sponsors.html"><t><de>Sponsoren</de><en>Sponsors</en></t></a></li>
+          <li><a href="status.html">Status</a></li>
+        </ul>
+        <div id="topnav_clearing"></div>
+      </nav>
+    </header>
+    <div id="content">
+      <aside id="sidebar">
+        <nav id="mainnav">
+          <h2><t><de>Dieser Workshop</de><en>This conference</en></t></h2>
+          <ul class="mainnav">
+            [% PROCESS menu %]
+          </ul>
+        </nav>
+        <!--
+        <section class="sidesponsors">
+          <h2><t><de>Gold-Sponsoren</de><en>Gold sponsors</en></t></h2>
+          <ul class="sidesponsors">
+            <li><a href="http://www.delti.com/" title="Delticom AG"><img src="images/logo-delticom.gif" alt="Delticom AG"></a></li>
+            <li><a href="http://www.profihost.com/" title="Profihost AG"><img src="images/logo-profihost.png" alt="Profihost AG"></a></li>
+          </ul>
+        </section>
+        <section class="sidesponsors">
+          <h2><t><de>Silber-Sponsoren</de><en>Silver sponsors</en></t></h2>
+          <ul class="sidesponsors">
+            <li><a href="javascript:;">Link</a></li>
+            <li><a href="javascript:;">Link</a></li>
+            <li><a href="javascript:;">Link</a></li>
+          </ul>
+        </section>
+        <section class="sidesponsors">
+          <h2><t><de>Bronze-Sponsoren</de><en>Bronce sponsors</en></t></h2>
+          <ul class="sidesponsors">
+            <li><a href="javascript:;">Link</a></li>
+            <li><a href="javascript:;">Link</a></li>
+            <li><a href="javascript:;">Link</a></li>
+          </ul>
+        </section>
+        -->
+        <section>
+          <h2><t><de>Andere ACT Konferenzen</de><en>Other ACT conferences</en></t></h2>
+          <ul class="mainnav">
+            [% PROCESS menus/act_confs %]
+          </ul>
+        </section>
+      </aside>
+      <section id="document">
+        [% content %]
+      </section>
+      <div id="content_clearing"></div>
+    </div>
+    <footer id="footer">
+      <p>
+        <a href="impressum.html"><t><de>Impressum</de><en>Imprint</en></t></a>
+			|
+		<a href="mailto:info@gpw2016.de">info@gpw2016.de</a>
+      </p>
+      <div id="socialshareprivacy"></div>
+    </footer>
+		<script type="text/javascript">
+			var lang_iso = '<t><de>de_DE</de><en>en_US</en></t>';
+			var lang_lc = '<t><de>de</de><en>en</en></t>';
+			var lang_uc = '<t><de>DE</de><en>EN</en></t>';
+			var stylechoose = '<t><de>Farben ändern</de><en>Change colors</en></t>';
+		</script>
+    <script type="text/javascript" src="scripts/jquery.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery-migrate.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery.socialshareprivacy.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js" defer></script>
+    <script type="text/javascript" src="scripts/base.js" defer></script>
+    <script type="text/javascript" src="/js/act.js" defer></script>
+  </body>
+</html>
+

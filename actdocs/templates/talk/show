@@ -1,0 +1,81 @@
+[% WRAPPER ui title = global.conference.name %]
+
+<article itemscope itemtype="http://data-vocabulary.org/Event">
+  
+<meta itemprop="url" content="http://act.yapc.eu/[% global.config.uri %]/talk/[% talk_id %]">
+[% IF datetime %]
+<meta itemprop="startDate" content="[% date_format(datetime, '%Y-%m-%d') %]T[% date_format(datetime, 'time' ) %]:00+0100">
+<meta itemprop="duration" content="P[% duration %]M">
+[% END %]
+<span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">
+  <meta itemprop="latitude" content="52.375996">
+  <meta itemprop="longitude" content="9.710547">
+</span>
+<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/Organization">
+  <meta itemprop="name" content="Kulturzentrum FAUST Warenannahme">
+  <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+    <meta itemprop="street-address" content="Zur Bettfedernfabrik 3">
+    <meta itemprop="locality" content="Hannover">
+    <meta itemprop="postal-code" content="30451">
+    <meta itemprop="region" content="Niedersachsen">
+    <meta itemprop="country-name" content="Deutschland">
+  </span>
+</span>
+
+<h2 itemprop="summary">[% title %][% IF lightning %] (Lightningtalk)[% END %]</h2>
+<p id="talk_by">
+<t><de>von</de><en>by</en></t> [% user_info(user) %][% IF user.pm_group %] ([% IF user.pm_group_url %]<a href="[% user.pm_group_url %]">[% user.pm_group %]</a>[% ELSE %][% user.pm_group %][% END %])[% END %]
+[% IF global.request.user.is_talks_admin || global.request.user.user_id == user_id %]
+| <a href="[% make_uri('edittalk', 'talk_id', talk_id) %]"><t><de>Diesen Talk bearbeiten</de><en>Edit this talk</en></t></a>
+[% END %]
+</p>
+
+<p>
+<t>
+  <de><em>[% title %]</em> richtet sich an [% level %][% IF lang %] und wird in [% global.config.talks_languages.$lang %] gehalten[% END %].</de>
+  <en><em>[% title %]</em> aimed at [% level %][% IF lang %] and is held in [% global.config.talks_languages.$lang %][% END %].</en>
+</t>
+[% IF datetime %]
+<t>
+  <de>Der Talk beginnt am <strong>[% date_format(datetime, '%d.%m.%Y') %]</strong> um <strong>[% date_format(datetime, 'time' ) %] Uhr</strong> und dauert <strong>[% duration %] Minuten</strong>. Er findet im <strong>[% global.config.rooms.$room %]</strong> statt.</de>
+  <en>This talk starts on <strong>[% date_format(datetime, '%Y-%m-%d') %]</strong> at <strong>[% date_format(datetime, 'time' ) %]</strong> for <strong>[% duration %] minutes</strong>. It takes place at the <strong>[% global.config.rooms.$room %]</strong>.</en>
+</t>
+[% END %]
+</p>
+
+<p id="talk_abstract" itemprop="description">[% expand(chunked_abstract) | html_line_break %]</p>
+
+[% IF url_abstract %]<p><t><de>Weitere Infos</de><en>Further information</en></t>: <a href="[% url_abstract %]">[% url_abstract %]</a></p>[% END %]
+[% IF url_talk %]<p><t><de>Präsentation</de><en>Slides</en></t>: <a href="[% url_talk %]">[% url_talk %]</a></p>[% END %]
+
+<hr>
+
+<p>Tags: [% showtags(tags, 'talks') %]</p>
+
+[% IF attendees.size %]
+<p><t><de>Teilnahmeinteresse</de><en>Interest in attending</en></t>:</p>
+<ul>
+[% FOREACH u IN attendees %]
+  <li>[% user_info(u) %]</li>
+[% END %]
+</ul>
+[% END %]
+[% IF global.request.user.has_registered %]
+<form method="POST" action="[% make_uri('updatemytalks') %]" />
+<label><input type="checkbox"
+       name="mt-[% talk_id %]"
+       value="[% talk_id %]"
+       title = "<t><de>Teilnahmeinteresse bekunden</de><en>Interest in attending</en></t>"
+       [% IF global.request.user.is_my_talk(talk_id) %]
+         checked = "checked"
+       [% END %]
+/>
+<span id="my-[% talk_id %]-text"><t><de>Teilnahmeinteresse bekunden</de><en>Interest in attending</en></t></span>
+</label>
+<input type="hidden" name="talk_id" value="[% talk_id %]" />
+<input type="submit" class="mytalks_submit" value="{{Submit}}" />
+</form>
+[% END %]
+</article>
+
+[% END %]

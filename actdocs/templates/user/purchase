@@ -1,0 +1,124 @@
+[% WRAPPER ui title = loc("Online payment") %]
+<script type="text/javascript">
+if (window.act) {
+    var amounts = [% amounts %];
+    $(function() {
+        get_radios = function(product) { return $(":radio[name=price-" + product +"]") };
+        compute_total = function() { 
+            var total = 0;
+            $(":checkbox[checked]").each(function() {
+                var product = $(this).val();
+                if (amounts[product]) {
+                    if (amounts[product].single)
+                        total += parseInt(amounts[product][1]);
+                    else
+                        get_radios(product).filter("[checked]").each(function() {
+                            var price_id = $(this).val();
+                            if (amounts[product][price_id])
+                                total += parseInt(amounts[product][price_id]);
+                        });
+                }
+            });
+            var donation = $("#form-donation").val();
+            if (donation) {
+                donation = parseInt(donation);
+                if (donation > 0) total += donation;
+            }
+            $("#totalamount").text(total);
+        };
+        $(":checkbox").each(function() {
+            var cb = $(this);
+            var radios = get_radios(cb.val());
+            // checking a price: check corresponding product checkbox
+            radios.click(function() {
+                    cb.attr('checked',true);
+                    compute_total();
+                   });
+            // checking a product: check 1st price
+            // unchecking a product: uncheck all its prices
+            cb.click(function() {
+                if (cb.attr('checked'))
+                    radios.filter(':first').attr('checked',true);
+                else
+                    radios.attr('checked',false)
+                compute_total();
+            });
+        });
+        $("#form-donation").change(compute_total);
+        compute_total();
+        $("#total").attr('style', 'visibility: visible');
+    });
+}
+</script>
+<div align="center">
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+
+[% FOREACH p IN productlist %]
+    [% NEXT IF p == 'registration' AND global.request.user.has_paid %]
+    <tr>
+        <td align="right"><input type="checkbox" value="[% p %]" id="product-[% p %]" name="product-[% p %]"[% ' checked="checked"' IF products.$p.checked %] /></td>
+        <td><label for="product-[% p %]">[% products.$p.name %]</label></td>
+[% IF products.$p.prices.size == 1 %]
+        <td align="right">[% products.$p.prices.0.amount %]</td>
+        <td>[% currency %]</td>
+    </tr>
+[% ELSE %]
+        <td></td>
+        <td></td>
+    </tr>
+    [% ispromo = 0;
+       FOREACH i IN products.$p.prices;
+         UNLESS i.promocode AND ispromo %]
+        <tr>
+            <td></td>
+           [% IF i.promocode; ispromo = 1 %]
+              <td><label for="promo-[% p %]">{{Promotion code}}</label></td>
+              <td><input type="text" id="promo-[% p %]" name="promo-[% p %]" size="20" maxlength="20" value="[% promo.$p %]" /></td>
+           [% ELSE %]
+              <td><input type="radio" id="price-[% p %]-[% i.price_id %]" name="price-[% p %]" value="[% i.price_id %]"[% ' checked="checked"' IF i.checked %] />
+                  <label for="price-[% p %]-[% i.price_id %]"> [% i.name %]</td>
+              <td align="right">[% i.amount %]</td>
+           [% END %]
+        <td>[% currency %]</td>
+        </tr>
+        [% END %]
+    [% END %]
+[% END %]
+[% END %]
+<tr>
+   <td colspan="2">
+      <label for="form-donation">{{Donation}}:</label>
+   </td>
+   <td>
+      <input name="donation" id="form-donation" type="text" size="5" maxlength="5" value="[% donation %]" />
+   </td>
+   <td>[% currency %]</td>
+</tr>
+<tr id="total" style="visibility: hidden">
+    <td colspan="2"><strong>{{Total}}</strong></td>
+    <td align="right"><strong><span id="totalamount">0</span></strong></td>
+    <td>[% currency %]</td>
+</tr>
+<tr>
+   <td colspan="4" align="right">
+      <input type="submit" name="purchase" value="{{Buy now!}}" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+</div>
+
+<p>
+<t><de>Nach Abschluss Ihrer Bestellung erhalten Sie eine Rechnung.
+Bitte &uuml;berweisen Sie den Rechnungsbetrag auf das genannte Konto. </de>
+<en>We will email you a invoice payable by bank transfer after completing your order.
+International visitors please contact us for cash payment on the conference day.</en></t>
+</p>
+
+[% file = "core/bank/${global.config.payment_type}" ; PROCESS $file %]
+[%END%]

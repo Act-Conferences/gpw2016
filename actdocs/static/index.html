@@ -1,0 +1,113 @@
+[% WRAPPER ui title = global.conference.name %]
+        <h2>
+        	<t>
+        		<de>17. Deutscher Perl-Workshop 2015 in Dresden vom 06. bis 08. Mai 2015</de>
+        		<en>17th German Perl Workshop 2015 in Dresden from 06th to 08th May 2015</en>
+    		</t>
+		</h2>
+        <p style="text-align: justify">
+        	<t>
+        		<de>
+					Der Deutsche Perl-Workshop ist eine jährlich in Deutschland 
+					stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.
+					Er findet 2015 im Dresdner Volkshaus statt.
+					Die Vorträge werden überwiegend in Deutsch gehalten, Vorträge auf Englisch sind ebenfalls sehr willkommen.
+				</de>
+				<en>
+					The German Perl Workshop is a conference about the Perl Programming Language. It is organized by Perl developers.
+					The 2015 GPW takes place in Dresden. The venue is called "Dresdner Volkshaus".
+					Most of the talks will be held in German, but talks in English are welcome as well of course.
+				</en>
+			</t>
+		</p>
+		<p>
+			<a href="register">
+				<t>
+					<de>Jetzt für den Workshop anmelden</de>
+					<en>Signup for attendance now</en>
+				</t>
+			</a>
+		</p>
+		<h3>
+			<t>
+				<de>Wir suchen Dich als Vortragenden</de>
+				<en>We want you as an speaker</en>
+			</t>
+		</h3>
+		<p>
+			<a href="[% make_uri('wanted.html') %]">
+				<t>
+					<de>Vorschläge für Vorträge</de>
+					<en>Talk suggestions</en>
+				</t>
+			</a>
+		</p>
+		<h3>
+			<t>
+				<de>Wichtige Informationen</de>
+				<en>Imporant information</en>
+			</t>
+		</h3>
+		<ul>
+			<li>
+				<t>
+					<de>Details zum</de>
+					<en>About the</en>
+				</t>
+				<a href="venue.html">
+					<t>
+						<de>Veranstaltungsort</de>
+						<en>venue</en>
+					</t>
+				</a>
+			</li>
+			<!-- <li><a href="preise.html"><t><de>Preisübersicht</de><en>Pricing</en></t></a></li> -->
+			<li>
+				<t>
+					<de>Wir stellen für Vortragende einen Laptop zur Verfügung, auf dem der Vortrag präsentiert wird.
+					  Bitte bringt eure Slides auf einem USB-Stick mit oder sendet sie uns vorab per Mail.</de>
+					<en>We provide a laptop for the presentation. 
+					  Please bring your slides on a USB stick or send them before by email.</en>
+				</t>
+			</li>
+			<li>
+				<t>
+					<de>Schickt uns euren Vortrag zusätzlich vorher als PDF</de>
+					<en>Please also send us your presentation as a PDF file</en>
+				</t>
+			</li>
+		</ul>
+		<p>
+			<t>
+				<de>E-Mail-Kontakt</de>
+				<en>E-mail contact</en>
+			</t>: <a href="mailto:info@gpw2015.de">info@gpw2015.de</a>
+		</p>
+
+[%
+	news = global.news(3);
+	IF news.size > 2;
+		more = news.pop;
+	END;
+%]
+[% IF news.size %]
+				<h3><t><de>Neueste Neuigkeiten</de><en>Latest news</en></t></h3>
+[% FOREACH item = news %]
+				<article class="news-entry">
+					<header class="news-header">
+						<h4>
+							<span class="news-date">[% date_format(item.datetime, 'date_short') %]</span>
+							<span class="news-title">[% item.title %]</span>
+						</h4>
+					</header>
+					<section class="news-text">
+						[% item.content %]
+					</section>
+				</article>
+[% END %]
+[% END %]
+[% IF more %]
+				<p><a href="news" class="news-link"><t><de>Alle Neuigkeiten</de><en>All news</en></t></a></p>
+[% END %]
+
+[% END %]

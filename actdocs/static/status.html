@@ -1,0 +1,51 @@
+[% WRAPPER ui title = global.conference.name %]
+
+        <meta http-equiv="refresh" content="30; url=tweets.html">
+        <h2><t><de>Deutscher Perl-Workshop 2015 Status</de><en>German Perl Workshop 2015 status</en></t></h2>
+        <small style="float: right;">Tweets in <var id="nextpagecowntdown"></var> sec</small>
+        <p><t><de>Aktuelle und zukünftige Events und Vorträge</de><en>Current and upcomming events and talks</en></t>.</p>
+  <table border="0" cellpadding="4">
+  [% events = current_events();
+     FOREACH period = events.keys.sort %]
+     
+     <tr align="left" valign="top"><td colspan="3"><h2>[% period %]</h2></td></tr>
+     <tr align="left" valign="top"><th>Ort</th><th>Uhrzeit</th><th>Name</th></tr>
+     
+     [% FOREACH room = events.$period.keys.sort;
+          event = events.$period.$room %]
+          <tr itemscope itemtype="http://data-vocabulary.org/Event" align="left" valign="top">
+            <td>[% global.config.rooms.$room OR loc("room_$room") %]</td>
+            <td><time itemprop="startDate" datetime="[% date_format(event.datetime, '%Y-%m-%d') %]T[% date_format(event.datetime, '%H:%M') %]+02:00">[% date_format(event.datetime, 'time') %]</time><br><i>[% event.duration %] {{min}}<meta itemprop="duration" content="P[% event.duration %]M"></i></td>
+            <td><b itemprop="summary">[% event.title %]</b>
+                  <i></i>
+                  [% IF global.config.talks_languages && global.config.talks_languages.${event.lang} %]
+                  <br>[% global.config.talks_languages.${event.lang} %]
+                  [% END %]
+                  [% IF event.user %]
+                    <br />{{by}} [% user_info_base(event.user) %]
+                  [% END %]
+                  <br />
+            </td>
+          </tr>
+     [% END %]
+
+  [% END %]
+  </table>
+  <p style="clear: right;"><t><de>Keine weiteren Einträge für heute</de><en>No further entries for today</en></t>.</p>
+  <script defer>
+    function nextpagecowntdown(newval) {
+      if ( newval != undefined ) {
+        document.getElementById('nextpagecowntdown').innerHTML = newval;
+      }
+      else {
+        newval = parseFloat(document.getElementById('nextpagecowntdown').innerHTML) - 0.1;
+        //newval = parseInt(newval * 10) / 10;
+        newval = newval.toFixed(1);
+      }
+      document.getElementById('nextpagecowntdown').innerHTML = newval;
+    }
+    nextpagecowntdown('30.0');
+    window.setInterval(nextpagecowntdown, 100);
+  </script>
+
+[% END %]

@@ -1,0 +1,47 @@
+[% WRAPPER ui title = global.conference.name %]
+
+<article itemscope itemtype="http://data-vocabulary.org/Event">
+  
+<meta itemprop="url" content="http://act.yapc.eu/[% global.config.uri %]/event/[% event_id %]">
+[% IF datetime %]
+<meta itemprop="startDate" content="[% date_format(datetime, '%Y-%m-%d') %]T[% date_format(datetime, 'time' ) %]:00+0100">
+<meta itemprop="duration" content="P[% duration %]M">
+[% END %]
+<span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/Geo">
+  <meta itemprop="latitude" content="52.375996">
+  <meta itemprop="longitude" content="9.710547">
+</span>
+<span itemprop="location" itemscope itemtype="http://data-vocabulary.org/Organization">
+  <meta itemprop="name" content="Kulturzentrum FAUST Warenannahme">
+  <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+    <meta itemprop="street-address" content="Zur Bettfedernfabrik 3">
+    <meta itemprop="locality" content="Hannover">
+    <meta itemprop="postal-code" content="30451">
+    <meta itemprop="region" content="Niedersachsen">
+    <meta itemprop="country-name" content="Deutschland">
+  </span>
+</span>
+
+<h2 itemprop="summary">[% title %]</h2>
+
+[% IF global.request.user.is_talks_admin %]
+<p><a href="[% make_uri('editevent', 'event_id', event_id) %]"><t><de>Dieses Event bearbeiten</de><en>Edit this event</en></t></a></p>
+[% END %]
+
+[% IF datetime %]
+<p>
+<t>
+  <de>Das Event beginnt am <strong>[% date_format(datetime, '%d.%m.%Y') %]</strong> um <strong>[% date_format(datetime, 'time' ) %] Uhr</strong> und dauert <strong>[% duration %] Minuten</strong>. Er findet im <strong>[% IF global.config.rooms.$room %][% global.config.rooms.$room %][% ELSE %][% room %][% END %]</strong> statt.</de>
+  <en>This event starts on <strong>[% date_format(datetime, '%Y-%m-%d') %]</strong> at <strong>[% date_format(datetime, 'time' ) %]</strong> for <strong>[% duration %] minutes</strong>. It takes place at the <strong>[% IF global.config.rooms.$room %][% global.config.rooms.$room %][% ELSE %][% room %][% END %]</strong>.</en>
+</t>
+</p>
+[% END %]
+
+<p id="event_abstract" itemprop="description">[% expand(chunked_abstract) | html_line_break %]</p>
+
+[% IF url_abstract %]<p><t><de>Weitere Infos</de><en>Further information</en></t>: <a href="[% url_abstract %]">[% url_abstract %]</a></p>[% END %]
+[% IF url_event %]<p><t><de>Präsentation</de><en>Slides</en></t>: <a href="[% url_event %]">[% url_event %]</a></p>[% END %]
+
+</article>
+
+[% END %]

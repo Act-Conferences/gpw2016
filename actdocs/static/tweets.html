@@ -1,0 +1,23 @@
+[% WRAPPER ui_light title = global.conference.name %]
+        <meta http-equiv="refresh" content="30; url=status.html">
+        <h2><t><de>Deutscher Perl-Workshop 2015 Tweets</de><en>German Perl Workshop 2015 tweets</en></t> "gpw2015"</h2>
+        <small style="float: right;">Status in <var id="nextpagecowntdown"></var> sec</small>
+        <a class="twitter-timeline"  href="https://twitter.com/search?q=gpw2015"  data-widget-id="336458268140515328" data-chrome="noheader nofooter noborders transparent noscrollbar" data-tweet-limit="10" lang="<t><de>DE</de><en>EN</en></t>">Tweets über "gpw2015"</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <div style="clear: right;"></div>
+  <script defer>
+    function nextpagecowntdown(newval) {
+      if ( newval != undefined ) {
+        document.getElementById('nextpagecowntdown').innerHTML = newval;
+      }
+      else {
+        newval = parseFloat(document.getElementById('nextpagecowntdown').innerHTML) - 0.1;
+        //newval = parseInt(newval * 10) / 10;
+        newval = newval.toFixed(1);
+      }
+      document.getElementById('nextpagecowntdown').innerHTML = newval;
+    }
+    nextpagecowntdown('30.0');
+    window.setInterval(nextpagecowntdown, 100);
+  </script>
+[% END %]

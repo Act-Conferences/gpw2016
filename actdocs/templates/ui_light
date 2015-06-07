@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="[% global.request.language %]">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <base href="[% make_uri('') %]" target="_top">
+    <title>[% global.conference.name %]</title>
+    <meta name="description"      content="Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.">
+    <meta name="keywords"         content="Perl,Workshop,Konferenz,Deutschland,Entwickler,Programmiersprache">
+    <meta name="application-name" content="ACT GPW2016">
+    <meta name="author"           content="Hannover.pm">
+    <meta name="generator"        content="act.yapc.eu">
+    <script type="text/javascript" src="scripts/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/base.css">
+    <link rel="stylesheet" type="text/css" href="styles/oldcolors.css">
+  </head>
+  <body class="ui_light">
+    <header id="header">
+      <div id="logo"></div>
+      <h1 id="site_name"><a href="index.html">[% global.conference.name %]</a></h1>
+    </header>
+    <div id="content">
+      <section id="document">
+        [% content %]
+      </section>
+      <div id="content_clearing"></div>
+    </div>
+    <footer id="footer">
+      <p>
+        <span>© 2013, <a href="http://hannover.pm">Hannover.pm</a></span>
+        |
+        <a href="impressum.html"><t><de>Impressum</de><en>Imprint</en></t></a>
+	|
+	<a href="mailto:gpw2016@hannover.pm">gpw2016@hannover.pm</a>
+      </p>
+    </footer>
+		<script type="text/javascript">
+			var lang_iso = '<t><de>de_DE</de><en>en_US</en></t>';
+			var lang_lc = '<t><de>de</de><en>en</en></t>';
+			var lang_uc = '<t><de>DE</de><en>EN</en></t>';
+			var stylechoose = '<t><de>Farben ändern</de><en>Change colors</en></t>';
+		</script>
+    <script type="text/javascript" src="scripts/jquery.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery-migrate.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery.socialshareprivacy.js" defer></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js" defer></script>
+    <script type="text/javascript" src="scripts/base.js" defer></script>
+    <script type="text/javascript" src="/js/act.js" defer></script>
+  </body>
+</html>
+

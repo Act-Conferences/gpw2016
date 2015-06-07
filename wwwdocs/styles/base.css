@@ -1,0 +1,146 @@
+html {
+  font-family: "Trebuchet MS",sans-serif;
+  font-size: 11pt;
+  line-height: 1.5em;
+  background-color: #36393D;
+}
+body {
+  width: 940px;
+  margin: 1em auto;
+  padding: 20px;
+  background-color: #FFFFFF;
+}
+#header {
+  color: #FFFFFF;
+  background-color: #333366;
+}
+#logo {
+  float: left;
+  width: 165px;
+  height: 72px;
+  background: transparent url(../images/karawane-logo-transparent-weiss.png) left top no-repeat;
+}
+#header h1 {
+  margin: 0;
+  padding: 1em;
+}
+#header h1 a {
+  text-decoration: none;
+}
+#header a:link,
+#header a:visited {
+  color: #FFFFFF;
+}
+header #otherworkshops {
+  margin: 0 0 1em;
+  padding: 0 0.5em 0 0;
+  text-align: right;
+}
+#otherworkshops a {
+    border: 1px solid black;
+    padding: 0.3em;
+    text-decoration: none;
+}
+ul.topnav {
+  margin: 0;
+  padding: 0;
+  list-style: inside none;
+}
+ul.topnav li {
+  float: left;
+  border-top: 0.1em solid #FFFFFF;
+  border-right: 0.1em solid #FFFFFF;
+}
+ul.topnav li a,
+ul.topnav li span {
+  display: block;
+  padding: 0.8em 1em;
+  text-decoration: none;
+}
+#topnav_clearing {
+  clear: left;
+}
+#content {
+  padding: 1em 0;
+}
+#sidebar {
+  float: left;
+  width: 300px;
+}
+#sidebar nav,
+#sidebar section {
+  margin: 0 0 1em;
+  padding: 0 0 0.4em;
+  background-color: #F9F7ED;
+}
+#sidebar h2 {
+  margin: 0;
+  padding: 0.4em;
+  font-size: 1.2em;
+  color: #FFFFFF;
+  background-color: #36393D;
+}
+ul.mainnav {
+  margin: 0;
+  padding: 0.5em;
+  list-style: inside none;
+}
+ul.mainnav li.child {
+  margin-left: 1em;
+}
+ul.mainnav li.section {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.sidesponsors ul {
+  margin: 0;
+  padding: 0;
+  list-style: inside none;
+}
+.sidesponsors li {
+  text-align: center;
+}
+.sidesponsors img {
+  max-width: 85%;
+}
+#document {
+  width: 590px;
+  margin: 0 0 0 320px;
+  padding: 15px;
+  background-color: #F9F7ED;
+  text-align: justify;
+}
+#document table {
+  text-align: left;
+}
+body.ui_light #document {
+  width: inherit;
+  margin: 0;
+}
+#content_clearing {
+  clear: left;
+}
+#footer {
+  padding: 1px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #36393D;
+}
+#footer a:link,
+#footer a:visited {
+  color: #FFFFFF;
+}
+#footer div#socialshareprivacy {
+  width: 540px;
+  margin: 0 auto;
+  text-align: left;
+  color: #000000;
+}
+/* Fixes for Wiki */
+textarea[name="content"] {
+  width: 99%;
+}
+#stylechoose {
+  cursor: pointer;
+}

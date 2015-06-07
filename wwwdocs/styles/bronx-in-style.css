@@ -1,0 +1,42 @@
+/* */
+
+body {
+    /* background-color: navy; */
+    /* color: #b78900; */
+}
+
+div.header {
+    /* background: url("http://farm9.staticflickr.com/8068/8228577709_840af9232f_o.jpg"); */
+    /* background: url("http://farm5.staticflickr.com/4002/4286535280_02908ddb3d_b.jpg"); */
+    background-image: url("/gpw2016/images/caravan-2048x400.jpeg");
+    background-size: auto 400px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    /* height: 400px; */
+    min-height: 300px;
+    width: 100%;
+    float: left;
+    padding-top: 20px;
+}
+
+div.header h1 {
+    margin-top: 20px;
+    margin-bottom: -10px;
+    color: gold;
+    letter-spacing: 0.1em;
+    text-shadow:
+       2px   0px black,
+       2px   2px black,
+       0px   2px black,
+      -2px   2px black,
+      -2px   0px black,
+      -2px  -2px black,
+       0px  -2px black,
+       2px  -2px black 
+    ;
+}
+
+div.button-row a {
+    text-transform: uppercase;
+    margin: auto 10px;
+}

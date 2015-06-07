@@ -1,0 +1,143 @@
+[% BLOCK invoice_body  %]
+
+<DIV style="float:right;">
+  
+</div>
+    <table border="0">
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+Frankfurt Perlmongers e.V.<br>
+c/o Max Maischein<br>
+Röderbergweg 167<br>
+60385 Frankfurt<br>
+E-Mail: vorstand@frankfurt.pm<br>
+Homepage: http://frankfurt.pm<br>
+
+	</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top" width="50%">
+          [% IF invoice.company; invoice.company; "<br />"; END %]
+          [% invoice.address | html_line_break %]
+          [% IF invoice.vat %]
+            <br />
+            {{VAT Number}}:
+          [% invoice.vat; END %]
+        </td>
+        <td valign="top" width="50%">
+          Teilnehmer :<br/>
+          [% invoice.first_name %]&nbsp;[% invoice.last_name %]
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2"><br/><br/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table border="0" width="100%">
+            <tr>
+              <th align="center">{{Invoice #}}</th>
+              <th align="center">{{Dated}}</th>
+              <th align="center">Lieferdatum</th>
+            </tr>
+            <tr>
+              <td align="center">[% invoice.invoice_no %]</td>
+              <td align="center">[% date_format(invoice.datetime, 'date_short') %]</td>
+	      <td align="center">1.5.2015</td>
+            </tr>
+	  </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table border="1" width="100%">
+            <tr>
+              <th>{{Description}}</th>
+              <th>{{Quantity}}</th>
+              <th>{{Unit Price}}</th>
+              <th>{{Total}}</th>
+            </tr>
+            <tr>
+             <td align="left" colspan="4">
+               <br />
+               {{Your order number:}}
+
+               [%# info about the payment: order #, payment date and payment means
+                   you can use this to turn this invoice into a receipt
+               %]
+               [% order.order_id %] - [% date_format(order.datetime, 'date_short','de') %] - [% order.means %]
+              </td>
+            </tr>
+              <tr>
+              <td align="left">Deutscher Perl-Workshop 6-8.05.2015 [% item.name %]</td>
+              </tr>
+            [% FOREACH item IN order.items %]
+            <tr>
+              <td align="left">[% item.name %]</td>
+              <td align="center">1</td>
+              <td align="right">[% item.amount %]&nbsp;[% invoice.currency %]</td>
+              <td align="right">[% item.amount %]&nbsp;[% invoice.currency %]</td>
+            </tr>
+            [% END %]
+            <tr>
+              <td colspan="3" align="right">{{Total due}}</td>
+              <td align="right">[% invoice.amount %]&nbsp;[% invoice.currency %] </td>
+            </tr>
+          </table>
+         </td>
+        </tr>
+
+	<tr>
+	  <td colspan="2"> <br/><br/>Bitte &uuml;berweisen Sie den Betrag auf das folgende Konto</td>
+        </tr>
+            <tr> <td> Empf&auml;nger</td><td > Frankfurt Perlmongers e.V.</td></tr>
+            <tr> <td> Kontonummner</td><td > 4950960</td></tr>	
+            <tr> <td> Bankleitzahl</td><td > 50090500</td></tr>	
+            <tr> <td> IBAN</td><td > DE83500905000004950960</td></tr>	
+            <tr> <td> BIC</td><td > GENODEF1S12</td></tr>	
+            <tr> <td> Bank</td><td > Sparda Hessen eG</td></tr>	
+            <tr valign="top"> <td> Verwendungszweck</td><td>DPW 2015 Dresden<br/>BestellNr.: <em>Bestellnummer</em><br/><em>Nachname, Vorname</em></td></tr>		
+            <tr> 
+	      <td colspan="2">
+	      <p>Der Frankfurt Perlmongers e.V. ist ein gemeinn&uuml;tziger Verein weisst keine USt. aus.</p>
+	    </tr>
+    </table>
+[% END %]
+
+[% IF printer_friendly %]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="[% global.request.language %]" xml:lang="[% global.request.language %]">
+<head>
+<title>{{Invoice}}</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+[% PROCESS invoice_body %]
+</body>
+</html>
+
+
+[% ELSE;
+   WRAPPER ui title = loc('Invoice')
+%]
+
+[%# Remove the following <div>...</div> if you use the printer_friendly version mechanism %]
+<div id="dontprint">
+<p>{{You can print this page: only the invoice below will be printed.}}</p>
+</div>
+
+[% PROCESS invoice_body %]
+
+<div align="center">
+<p><a href="[% printer_uri %]" target="_new">{{Printer friendly version}}</a></p>
+</div>
+
+[% END; END %]

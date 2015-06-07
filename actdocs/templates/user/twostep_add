@@ -1,0 +1,62 @@
+[% WRAPPER ui title = loc("Confirmation required") %]
+
+<!--
+    <p>{{This operation requires a confirmation. Please enter your email address,}}</p>
+-->
+
+[% PROCESS error
+   msgs = {
+     ERR_EMAIL        => loc("You must enter your email"),
+     ERR_EMAIL_SYNTAX => loc("Your email address looks bogus."),
+  }
+%]
+<p>
+    <t>
+        <de>
+            Zum Anmelden beim  Deutschen Perl-Workshop ist es nötig, sich am Konferenzsystem der YAPC Europe zu registrieren. 
+            Mit dieser Registrierung ist auch eine Anmeldung bei der YAPC Europe und anderen Perl-Workshops möglich.
+        </de>
+        <en>
+            To register for the German Perl Workshop it's necessary to register at the conference system of YAPC Europe first. 
+            This step also allows you to register for YAPC Europe and other Perl workshops.
+        </en>
+    </t>
+</p>
+
+<form method="POST" action="[% global.request.r.uri %]">
+
+<table border="1" cellpadding="10" cellspacing="0"><tr><td>
+<table border="0" cellpadding="0" cellspacing="10">
+<tr>
+  <td align="right">{{Email}}</td>
+  <td>&nbsp;</td>
+  <td>
+    <input type="text" name="email" value="[% email %]" size="25" maxlength="256" />
+  </td>
+</tr>
+<tr>
+   <td colspan="3" align="right">
+      <input type="submit" name="twostepsubmit" value="OK" />
+   </td>
+</tr>
+</table>
+</td></tr></table>
+
+</form>
+
+<p>
+    <t>
+        <de>
+            Nach der Eingabe  Ihrer E-Mail Adresse erhalten Sie eine E-Mail mit einem Link, über den Sie zur Registrierung gelangen. 
+            Dort können Sie dann Ihre weiteren Daten eingeben. Als nächsten Schritt müssen Sie dann die (Pseude)-Bezahlung durchführen, 
+            dort wählen Sie Ihren Teilnahmebeitrag und bekommen eine Rechnung mit den Bankdaten zur Überweisung.
+        </de>
+        <en>
+            After entering your email address you will receive an email with a link that allows you to access the registration.
+            At the registration page You can enter further information. Afterwards you have to process a Pseudo-Payment-Step.
+            At this point you can choose your entry fee and you will get an invoice with the bank details for the bank transfer.
+        </en>
+    </t>
+</p>
+
+[% END %]

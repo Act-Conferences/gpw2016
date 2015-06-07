@@ -1,0 +1,73 @@
+html.oldcolors {
+  background-color: #FFFFFF;
+}
+
+html.oldcolors body {
+  width: 940px;
+  margin: 1em auto;
+  padding: 20px;
+  background-color: #FFFFED;
+}
+html.oldcolors h1,
+html.oldcolors h2,
+html.oldcolors h3,
+html.oldcolors h4,
+html.oldcolors h5,
+html.oldcolors h6 {
+  color: #4682B4;
+}
+html.oldcolors a,
+html.oldcolors a:link,
+html.oldcolors a:visited {
+  color: #4682B4;
+}
+html.oldcolors a:hover,
+html.oldcolors a:focus,
+html.oldcolors a:active {
+  background: #ffff99;
+}
+html.oldcolors #header {
+  color: #000000;
+  background: #ffff99; /* Old browsers */
+  background: -moz-linear-gradient(left, #ffff99 0%, #ffffff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffff99), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #ffff99 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #ffff99 0%,#ffffff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #ffff99 0%,#ffffff 100%); /* IE10+ */
+  background: linear-gradient(to right, #ffff99 0%,#ffffff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff99', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+}
+html.oldcolors #logo {
+  background-image: url(../images/karawane-logo-transparent.png);
+}
+html.oldcolors #header h1 a {
+  color: #4682B4 !important;
+}
+html.oldcolors #header a:link,
+html.oldcolors #header a:visited {
+  color: #4682B4;
+}
+html.oldcolors ul.topnav li {
+  float: left;
+  border-top: 0.1em solid #000000;
+  border-right: 0.1em solid #000000;
+}
+html.oldcolors #sidebar nav,
+html.oldcolors #sidebar section {
+  background: #FFFFFF;
+}
+html.oldcolors #sidebar h2 {
+  color: #000000;
+  background-color: #FFFF99;
+}
+html.oldcolors #document {
+  background: #FFFFFF;
+}
+html.oldcolors #footer {
+  color: #000000;
+  background-color: #ffff99;
+}
+html.oldcolors #footer a:link,
+html.oldcolors #footer a:visited {
+  color: #000000;
+}
