@@ -15,25 +15,25 @@
             Der Deutsche Perl-Workshop 2016 findet nahe dem Zentrum von N&uuml;rnberg statt.
             
             Die Anreise kann sehr gut mit öffentlichen Verkehrsmitteln erfolgen: 
-            Die U-Bahn-Haltestelle <strong>Maximilianstra&szlig;</strong> ist nur 250 Meter entfernt.
+            Die U-Bahn-Haltestelle <strong>Maximilianstra&szlig;e</strong> ist nur 250 Meter entfernt.
           </de>
           <en>
-            The German Perl Workshop 2016 will take place in the <strong>DATEV Campus</strong>,
+            The German Perl Workshop 2016 will take place in the <strong>DATEV IT-Campus</strong>,
             only a few hundred meters away from the center of Nuremberg.<br />
             We have an excellent public transport system in Dresden and the next 
-            station, <strong>Station Maximilianstra&szlig;</strong> is only 250 meters away.
+            station, <strong>Station Maximilianstra&szlig;e</strong> is only 250 meters away.
           </en>
         </t></p>
-
+49.453176,11.046511
     <script type="text/javascript">
     	function init_map(){
     		var myOptions = {
     			zoom:14,
-    			center:new google.maps.LatLng(49.4566999,11.0387524),
+    			center:new google.maps.LatLng(49.453176,11.046511),
     			mapTypeId: google.maps.MapTypeId.ROADMAP
     		};
     		map 	   = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-    		marker 	   = new google.maps.Marker({map: map,position: new google.maps.LatLng(49.4566999,11.0387524)});
+    		marker 	   = new google.maps.Marker({map: map,position: new google.maps.LatLng(49.453176,11.046511)});
     		infowindow = new google.maps.InfoWindow({content:"<b>DATEV IT-Campus</b><br/>Fürther Straße 111<br/>90429 Nürnberg" });
     		google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});
     		infowindow.open(map,marker);
