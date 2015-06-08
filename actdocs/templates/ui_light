@@ -8,7 +8,7 @@
     <meta name="description"      content="Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.">
     <meta name="keywords"         content="Perl,Workshop,Konferenz,Deutschland,Entwickler,Programmiersprache">
     <meta name="application-name" content="ACT GPW2016">
-    <meta name="author"           content="Hannover.pm">
+    <meta name="author"           content="Erlangen.pm">
     <meta name="generator"        content="act.yapc.eu">
     <script type="text/javascript" src="scripts/modernizr.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/normalize.css">
@@ -28,7 +28,7 @@
     </div>
     <footer id="footer">
       <p>
-        <span>© 2013, <a href="http://hannover.pm">Hannover.pm</a></span>
+        <span>© 2015, <a href="http://erlangen.pm.org">Erlangen.pm.org</a></span>
         |
         <a href="impressum.html"><t><de>Impressum</de><en>Imprint</en></t></a>
 	|

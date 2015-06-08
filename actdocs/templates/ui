@@ -8,7 +8,7 @@
     <meta name="description"      content="<t><de>Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.</de><en>The German Perl Workshop is a conference about the Perl Programming Language. It is organized by Perl developers.</en></t>">
     <meta name="keywords"         content="Perl,Workshop,<t><de>Konferenz,Deutschland,Entwickler,Programmiersprache</de><en>Conference,Germany,Developer,Programming language</en></t>">
     <meta name="application-name" content="ACT GPW2016">
-    <meta name="author"           content="Dresden.pm, Perleone">
+    <meta name="author"           content="Erlangen.pm, Perleone">
     <meta name="generator"        content="act.yapc.eu">
     <script type="text/javascript" src="scripts/modernizr.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/normalize.css">
