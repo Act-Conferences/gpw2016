@@ -12,12 +12,12 @@
   <meta itemprop="longitude" content="9.710547">
 </span>
 <span itemprop="location" itemscope itemtype="http://data-vocabulary.org/Organization">
-  <meta itemprop="name" content="Kulturzentrum FAUST Warenannahme">
+  <meta itemprop="name" content="DATEV IT-Campus">
   <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-    <meta itemprop="street-address" content="Zur Bettfedernfabrik 3">
-    <meta itemprop="locality" content="Hannover">
-    <meta itemprop="postal-code" content="30451">
-    <meta itemprop="region" content="Niedersachsen">
+    <meta itemprop="street-address" content="Fürther Str. 111">
+    <meta itemprop="locality" content="Nürnberg">
+    <meta itemprop="postal-code" content="90429">
+    <meta itemprop="region" content="Bayern">
     <meta itemprop="country-name" content="Deutschland">
   </span>
 </span>
