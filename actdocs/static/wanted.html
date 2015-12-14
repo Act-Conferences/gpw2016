@@ -1,52 +1,60 @@
 [% WRAPPER ui title = global.conference.name %]
-        <h2><t><de>Vorschläge für Vorträge</de><en>Talk suggestions</en></t></h2>
-        <p>
+    <h2><t><de>Vorschläge für Vorträge</de><en>Talk suggestions</en></t></h2>
+    <p>
+        <t>
+            <de>Wir sind an allen Themen aus dem Entwicklerumfeld und rund um Perl herum interessiert. Wer nach Anregungen sucht, findet hier ein paar Ideen.</de>
+            <en>We are interested in all topics around software engineering and Perl. Below are some topics that can serve as inspiration, though they are by no means a complete list.</en>
+        </t>
+    </p>
+    <ul>
+        <li><t><de>Softwareentwicklung und Projektmanagement</de><en>Software engineering and project management</en></t>
+            <ul>
+                <li>
+                    <t>
+                        <en>Architecture, design patterns, best practices</en>
+                        <de>Architektur, Design, best practices</de>
+                    </t>
+                </li>
+                <li>Soft skills (project management, <t><en>negotiations, hiring</en><de>Verhandlungen, Talentacquise</de></t>)</li>
+                <li>Software development lifecycle, continuous integration and deployment</li>
+            </ul>
+        </li>
+        <li><t><en>Perl engineering</en><de>Die technische Seite der Entwicklung mit Perl</de></t>
+            <ul>
+                <li>Perl 6</li>
+                <li><t><de>Objektorientierung mit Moo, Moose &amp; co</de><en>Advanced OO with Moo, Moose etc.</en></t></li>
+                <li><t><de>Einführung in populäre Module</de><en>Introduction to popular modules</en></t> (DBIx::Class, Catalyst, Mojolicious, Dancer, ...)</li>
+            </ul>
+        </li>
+        <li><t><en>The business side of Perl</en><de>Perl im Unternehmensumfeld</de></t>
+            <ul>
+                <li>
+                    <t>
+                        <de>Wo und wie findet man gute Entwickler?</de>
+                        <en>Hiring and the search for talent</en>
+                    </t>
+                </li>
+                <li>
+                    <t>
+                        <de>Wie wird Perl im Unternehmensumfeld eingesetzt?</de>
+                        <en>Case studies of Perl in the enterprise environment</en>
+                    </t>
+                </li>
+                <li>
+                    <t>
+                        <de>Die Zukunft: Ausblicke und Herausforderungen</de>
+                        <en>The future: challenges and strategies</en>
+                    </t>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <a href="newtalk.html">
             <t>
-                <de>Wir sind an allen Themen aus dem Entwicklerumfeld und rund um Perl herum interessiert. Wer nach Anregungen sucht, findet hier ein paar Ideen.</de>
-                <en>We are interested in all topics around software engineering and Perl. Below are some topics that can serve as inspiration, though they are by no means a complete list.</en>
+                <de>Vortrag einreichen</de>
+                <en>Submit a talk proposal</en>
             </t>
-        </p>
-        <ul>
-            <li><t><de>Softwareentwicklung und Projektmanagement</de><en>Software engineering and project management</en></t>
-                <ul>
-                    <li>
-                        <t>
-                            <en>Architecture, design patterns, best practices</en>
-                            <de>Architektur, Design, best practices</de>
-                        </t>
-                    </li>
-                    <li>Soft skills (project management, <t><en>negotiations, hiring</en><de>Verhandlungen, Talentacquise</de></t>)</li>
-                    <li>Software development lifecycle, continuous integration and deployment</li>
-                </ul>
-           </li>
-           <li><t><en>Perl engineering</en><de>Die technische Seite der Entwicklung mit Perl</de></t>
-                <ul>
-                    <li>Perl 6</li>
-                    <li><t><de>Objektorientierung mit Moo, Moose &amp; co</de><en>Advanced OO with Moo, Moose etc.</en></t></li>
-                    <li><t><de>Einführung in populäre Module</de><en>Introduction to popular modules</en></t> (DBIx::Class, Catalyst, Mojolicious, Dancer, ...)</li>
-                </ul>
-          </li>
-          <li><t><en>The business side of Perl</en><de>Perl im Unternehmensumfeld</de></t>
-                <ul>
-                    <li>
-                        <t>
-                            <de>Wo und wie findet man gute Entwickler?</de>
-                           <en>Hiring and the search for talent</en>
-                        </t>
-                    </li>
-                    <li>
-                        <t>
-                            <de>Wie wird Perl im Unternehmensumfeld eingesetzt?</de>
-                           <en>Case studies of Perl in the enterprise environment</en>
-                        </t>
-                    </li>
-                    <li>
-                        <t>
-                            <de>Die Zukunft: Ausblicke und Herausforderungen</de>
-                            <en>The future: challenges and strategies</en>
-                        </t>
-                    </li>
-                </ul>
-          </li>
-        </ul>
+        </a>
+    </p>
 [% END %]
