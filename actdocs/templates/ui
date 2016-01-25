@@ -17,7 +17,7 @@
   </head>
   <body>
     <header id="header">
-			<div id="logo"></div>
+      <div id="logo"></div>
       <h1 id="site_name"><a href="index.html">[% global.conference.name %]</a></h1>
       <p id="otherworkshops">
         <a href="http://act.yapc.eu/gpw2016/">2016</a>
@@ -49,6 +49,7 @@
           <li><a href="sponsoring.html"><t><de>Unterstützen</de><en>Sponsoring</en></t></a></li>
           <li><a href="sponsors.html"><t><de>Sponsoren</de><en>Sponsors</en></t></a></li>
           <li><a href="status.html">Status</a></li>
+          <li><a href="press.html"><t><de>Presse</de><en>Press</en></t></a></li>
         </ul>
         <div id="topnav_clearing"></div>
       </nav>

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <base href="[% make_uri('') %]" target="_top">
     <title>[% global.conference.name %]</title>
-    <meta name="description"      content="Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.">
-    <meta name="keywords"         content="Perl,Workshop,Konferenz,Deutschland,Entwickler,Programmiersprache">
+    <meta name="description"      content="<t><de>Der Deutsche Perl-Workshop ist eine jährlich in Deutschland stattfindende Konferenz von und für Entwickler der Programmiersprache Perl.</de><en>The German Perl Workshop is a conference about the Perl Programming Language. It is organized by Perl developers.</en></t>">
+    <meta name="keywords"         content="Perl,Workshop,<t><de>Konferenz,Deutschland,Entwickler,Programmiersprache</de><en>Conference,Germany,Developer,Programming language</en></t>">
     <meta name="application-name" content="ACT GPW2016">
-    <meta name="author"           content="Erlangen.pm">
+    <meta name="author"           content="Erlangen.pm, Perleone">
     <meta name="generator"        content="act.yapc.eu">
     <script type="text/javascript" src="scripts/modernizr.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/normalize.css">
@@ -32,7 +32,7 @@
         |
         <a href="impressum.html"><t><de>Impressum</de><en>Imprint</en></t></a>
 	|
-	<a href="mailto:gpw2016@hannover.pm">gpw2016@hannover.pm</a>
+	<a href="mailto:orga-gpw2016@list.cluster-team.com">orga-gpw2016@list.cluster-team.com</a>
       </p>
     </footer>
 		<script type="text/javascript">
