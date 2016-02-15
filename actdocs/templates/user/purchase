@@ -114,10 +114,19 @@ if (window.act) {
 </div>
 
 <p>
-<t><de>Nach Abschluss Ihrer Bestellung erhalten Sie eine Rechnung.
-Bitte &uuml;berweisen Sie den Rechnungsbetrag auf das genannte Konto. </de>
-<en>We will email you a invoice payable by bank transfer after completing your order.
-International visitors please contact us for cash payment on the conference day.</en></t>
+    <t>
+        <de>
+            Nach Abschluss Ihrer Bestellung erstellen wir eine Rechnung.
+            Bitte laden Sie diese herunter.
+            Bitte überweisen Sie den Rechnungsbetrag auf das dort genannte Konto mit IBAN.
+        </de>
+        <en>
+            After order we create an invoice.
+            Please download the invoice.
+            Please transfer the amout to the account with IBAN you read in that invoice.
+            If you are not able to transfer using IBAN contact us for cash payment on the conference day.
+        </en>
+    </t>
 </p>
 
 [% file = "core/bank/${global.config.payment_type}" ; PROCESS $file %]
